@@ -3,40 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hug Day for Kashuuuu ??</title>
+<title>Hug Day — Kashuuuu 🤗</title>
 
 <style>
 body{
   margin:0;
-  font-family: system-ui;
-  background: linear-gradient(135deg,#ffd1dc,#ff4b6e,#7b1fa2);
+  font-family:system-ui;
+  background:linear-gradient(135deg,#ffd1dc,#ff6b8a,#7b1fa2);
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  color:#333;
 }
 
 .card{
+  width:min(430px,95vw);
   background:white;
-  width:min(420px,92vw);
   border-radius:24px;
-  padding:20px;
-  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  padding:18px;
+  box-shadow:0 20px 55px rgba(0,0,0,.3);
   text-align:center;
+  position:relative;
 }
 
-.page{ display:none; }
-.page.active{ display:block; }
+.page{display:none;}
+.page.active{display:block;}
 
-h1{ font-size:1.4rem; margin:8px 0; }
+h1{font-size:1.4rem;margin:6px 0;}
+p{color:#555;margin:6px 0;}
 
 .gif{
   width:200px;
   height:200px;
   object-fit:cover;
-  border-radius:16px;
-  margin:10px 0;
+  border-radius:18px;
+  margin:10px auto;
+  display:block;
 }
 
 button{
@@ -48,25 +50,21 @@ button{
   cursor:pointer;
 }
 
-.next{ background:#ff4b6e;color:white;}
-.gameBtn{ background:#eee;}
-.hugBtn{ background:#ff4b6e;color:white;}
+.next{background:#ff4b6e;color:white;}
+.gameBtn{background:#eee;}
+.hugBtn{background:#ff4b6e;color:white;}
 
-.hearts{
+.counter{font-weight:700;}
+
+.floatHeart{
   position:fixed;
   font-size:20px;
   animation:fly 1s forwards;
 }
 @keyframes fly{
   from{opacity:1;transform:translateY(0);}
-  to{opacity:0;transform:translateY(-150px);}
+  to{opacity:0;transform:translateY(-160px);}
 }
-
-.counter{
-  font-weight:700;
-  margin-top:6px;
-}
-
 </style>
 </head>
 
@@ -76,26 +74,26 @@ button{
 
 <!-- PAGE 1 -->
 <div class="page active">
-<h1>Happy Hug Day Kashuuuu ??</h1>
-<p>Prarthit has something special for you...</p>
-<img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
-<button class="next">Start Hug Adventure ??</button>
+<h1>Happy Hug Day Kashuuuu 🤗</h1>
+<p>Prarthit prepared something cute...</p>
+<img class="gif" src="https://media.giphy.com/media/l2R0aV7rL9N5U7z9C/giphy.gif">
+<button class="next">Start Hug Adventure 💖</button>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page">
-<h1>Hug Meter Game</h1>
+<h1>Collect Hugs</h1>
 <p>Tap teddy to collect hugs!</p>
-<img id="hugTap" class="gif" src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif">
-<div class="counter">Hugs Collected: <span id="hugCount">0</span>/5</div>
-<button id="hugNext" class="next" disabled>Next Level</button>
+<img id="hugTap" class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
+<div class="counter">Hugs: <span id="hugCount">0</span>/5</div>
+<button id="hugNext" class="next" disabled>Next</button>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page">
 <h1>Catch the Hug</h1>
-<p>Click the moving hug!</p>
-<button id="movingBtn" class="gameBtn">??</button>
+<p>Catch the moving hug!</p>
+<button id="moveBtn" class="gameBtn">🤗</button>
 <div class="counter">Caught: <span id="catchCount">0</span>/4</div>
 <button id="catchNext" class="next" disabled>Continue</button>
 </div>
@@ -103,26 +101,25 @@ button{
 <!-- PAGE 4 -->
 <div class="page">
 <h1>Choose Your Hug</h1>
-<p>Which hug do you want?</p>
-<button class="hugChoice">Tight Hug</button>
-<button class="hugChoice">Long Hug</button>
-<button class="hugChoice">Surprise Hug</button>
+<p>Select your favorite:</p>
+<button class="choice">Tight Hug</button>
+<button class="choice">Long Hug</button>
+<button class="choice">Surprise Hug</button>
 <div id="choiceMsg"></div>
-<button class="next" id="choiceNext" disabled>Next</button>
+<button id="choiceNext" class="next" disabled>Next</button>
 </div>
 
 <!-- PAGE 5 -->
 <div class="page">
 <h1>Memory Hug</h1>
-<p>Remember our best moments?</p>
-<img class="gif" src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif">
-<p>Each moment deserves a hug.</p>
-<button class="next">Give Hug ??</button>
+<p>Every memory deserves a hug.</p>
+<img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif">
+<button class="next">Give Hug 💞</button>
 </div>
 
 <!-- PAGE 6 -->
 <div class="page">
-<h1>Speed Hug Game</h1>
+<h1>Speed Hug</h1>
 <p>Click HUG before time ends!</p>
 <button id="speedBtn" class="hugBtn">HUG!</button>
 <div id="speedMsg"></div>
@@ -130,10 +127,10 @@ button{
 
 <!-- PAGE 7 -->
 <div class="page">
-<h1>You unlocked bonus hugs!</h1>
-<img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif">
-<p>Ready for the final reward?</p>
-<button class="next">Final Hug ??</button>
+<h1>Bonus Hug Rain!</h1>
+<img class="gif" src="https://media.giphy.com/media/3o6gbbkZ9OjyYoAeEU/giphy.gif">
+<p>Tap anywhere for hug rain!</p>
+<button class="next">Final Surprise</button>
 </div>
 
 <!-- PAGE 8 -->
@@ -141,11 +138,11 @@ button{
 <h1>Hug Certificate</h1>
 <img class="gif" src="https://media.giphy.com/media/3oriO6qJiXajN0TyDu/giphy.gif">
 <p>
-Official Hug Day Result:<br>
-Kashuuuu receives<br>
-<strong>Unlimited Lifetime Hugs from Prarthit</strong>
+Official Result:<br>
+<strong>Kashuuuu wins unlimited hugs<br>
+from Prarthit 🤗💖</strong>
 </p>
-<p>Screenshot this ??</p>
+<p>Screenshot this 😌</p>
 <button onclick="location.reload()">Play Again</button>
 </div>
 
@@ -154,63 +151,76 @@ Kashuuuu receives<br>
 <script>
 let page=0;
 const pages=document.querySelectorAll(".page");
+
 function showPage(i){
   pages[page].classList.remove("active");
   page=i;
   pages[page].classList.add("active");
 }
+
 document.querySelectorAll(".next").forEach(btn=>{
   btn.onclick=()=>showPage(page+1);
 });
 
 function hearts(){
   const h=document.createElement("div");
-  h.className="hearts";
-  h.textContent="??";
+  h.className="floatHeart";
+  h.textContent="💖";
   h.style.left=Math.random()*window.innerWidth+"px";
-  h.style.top="60%";
+  h.style.top="70%";
   document.body.appendChild(h);
   setTimeout(()=>h.remove(),1000);
 }
 
-/* Hug tap game */
+/* Game 1 */
 let hugs=0;
 hugTap.onclick=()=>{
   hugs++;
-  hearts();
   hugCount.textContent=hugs;
+  hearts();
   if(hugs>=5) hugNext.disabled=false;
 };
+hugNext.onclick=()=>showPage(page+1);
 
-/* Moving hug game */
+/* Game 2 */
 let catches=0;
-movingBtn.onclick=()=>{
+moveBtn.onclick=()=>{
   catches++;
-  hearts();
   catchCount.textContent=catches;
-  movingBtn.style.transform=`translate(${Math.random()*150-75}px,${Math.random()*40-20}px)`;
+  hearts();
+  moveBtn.style.transform=`translate(${Math.random()*140-70}px,${Math.random()*40-20}px)`;
   if(catches>=4) catchNext.disabled=false;
 };
+catchNext.onclick=()=>showPage(page+1);
 
-/* Hug choice */
-document.querySelectorAll(".hugChoice").forEach(btn=>{
+/* Choice */
+document.querySelectorAll(".choice").forEach(btn=>{
   btn.onclick=()=>{
-    choiceMsg.innerText="Great choice! Hug reserved ??";
+    choiceMsg.innerText="Perfect choice! Hug ready 🤗";
     choiceNext.disabled=false;
+    hearts();
   };
 });
+choiceNext.onclick=()=>showPage(page+1);
 
-/* Speed game */
+/* Speed Game */
 let clicked=false;
 speedBtn.onclick=()=>{
   clicked=true;
-  speedMsg.innerText="Hug secured! ??";
+  speedMsg.innerText="Hug secured 😄";
+  hearts();
   setTimeout(()=>showPage(page+1),800);
 };
 setTimeout(()=>{
-  if(!clicked) speedMsg.innerText="Too slow! But hug anyway ??";
+  if(!clicked) speedMsg.innerText="Too slow, but hug anyway 😌";
 },3000);
 
+/* Hug rain */
+document.addEventListener("click",()=>{
+  if(page===6){
+    for(let i=0;i<6;i++) hearts();
+  }
+});
 </script>
 
 </body>
